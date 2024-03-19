@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main-content %}
+
+<div class="conteiner my-5">
+    <div class="row ms-5">
+
+        <!--==========================================Sidebar Start================================================-->
+        <h4 class="mb-4">Welcome <span class="text-Capitalize">{{request.user.first_name}}</span></h4>
+        <div class="col-sm-2 border-end">
+            <ul class="list-unstyled">
+                <li class="d-grid"><a href="{% url 'profile' %}" class="btn">Profile</a></li>
+                <li class="d-grid"><a href="{% url 'address' %}" class="btn btn-primary">Address</a></li>
+            </ul>
+        </div>
+        <!--==========================================Sidebar End================================================-->
+
+
+        <!--==========================================Address display card Start================================================-->
+        <div class="col-sm-8 offset-sm-1">
+            <div class="row">
+                {% for ad in add %}
+                <div class="col-sm-6">
+                    <div class="card m-2">
+                        <div class="card-body shadow-lg p-3">
+                            <h3>Address {{forloop.counter}}</h3>
+                            <p>Name: {{ad.name}}</p>
+                            <p>Locality: {{ad.locality}}</p>
+                            <p>Mobile: {{ad.mobile}}</p>
+                            <p>City: {{ad.city}}</p>
+                            <p>State: {{ad.state}}</p>
+                            <p>Pincode: {{ad.zipcode}}</p>
+                            <p class="text-center"> <a href="{% url 'updateaddress' pk=ad.id %}" type="button"
+                                    class="btn btn-success">Update</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <!--==========================================Address display card End================================================-->
+        {% endblock main-content %}
+    </div>
+</div>

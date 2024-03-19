@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main-content %}
+
+<div class="container">
+    <div class="section-title">
+        <center>
+            <h2>OUR PRODUCTS</h2>
+        </center>
+        <br>
+    </div>
+    
+    <!--============================Category Filter Section End===============================-->
+
+    <div class="row mt-4">
+        <!--================================Product Section Start====================================================-->
+        {% for x in menu %}
+        <div class="col-md-3 mb-4">
+            <div class="card card-product-grid">
+                <!--=================Product Image=========================-->
+
+                <img src="{{ x.image.url }}" class="card-img-top img-wrap" alt="Product 1" height="200">
+
+                <!--=================Card Body Start===========================-->
+
+                <div class="card-body">
+                    <figcaption class="info-wrap">
+                        <!--=================Product Name Start===================-->
+
+                        <h5 class="card-title font-monospace fw-bold">{{ x.name }}</h5>
+
+                        <!--=================Product Name End=========================-->
+
+                        <!--=================Product Rating Start=========================-->
+
+                        <p class="card-rating"></p>
+                        {% if x.rating == 10 or x.rating == 9 %}
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star checked text-warning"></span>
+                        {% elif x.rating == 8 or x.rating == 7 %}
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star unchecked"></span>
+                        {% elif x.rating == 6 or x.rating == 5 %}
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star unchecked"></span>
+                        <span class="fa fa-star unchecked"></span>
+                        {% elif x.rating == 4 or x.rating == 3 %}
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star unchecked"></span>
+                        <span class="fa fa-star unchecked"></span>
+                        <span class="fa fa-star unchecked"></span>
+                        {% else %}
+                        <span class="fa fa-star checked text-warning"></span>
+                        <span class="fa fa-star unchecked"></span>
+                        <span class="fa fa-star unchecked"></span>
+                        <span class="fa fa-star unchecked"></span>
+                        <span class="fa fa-star unchecked"></span>
+                        {% endif %}
+
+                        <!--=================Product Rating End=========================-->
+                        <br><br>
+
+                        <!--=================Product Price Start===========================-->
+
+                        <p class="card-price"><b class="font-monospace fw-bold">Price:</b> {{ x.price }}</p>
+
+                        <!--=================Product Price End===========================-->
+
+                        <!--=================Product Category Start===========================-->
+
+                        {% if x.cat == 1 %}
+                        <p class="card-price">Breakfast</p>
+                        {% elif x.cat == 2 %}
+                        <p class="card-price">Lunch</p>
+                        {% elif x.cat == 3 %}
+                        <p class="card-price">Dinner</p>
+                        {% else %}
+                        <p class="card-price">Beverages</p>
+                        {% endif %}
+
+                        <!--=================Product Category End===========================-->
+
+                        <!--=================Product Show Button Start===========================-->
+
+                        <a href="/dishdetails/{{x.id}}" class="btn fw-bold font-monospace" style="background-color: #d84eae;">See
+                            Details...</a>
+
+                        <!--=================Product Show Button End===========================-->
+                    </figcaption>
+                </div>
+
+                <!--=================Card Body End===========================-->
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<!--================================Product Section Start====================================================-->
+{% endblock main-content %}
+{% load static %}

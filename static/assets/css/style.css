@@ -1,0 +1,154 @@
+/* Navigation item hover effect */
+.navbar-nav li.nav-item:hover > a.nav-link {
+  background-color: #fa598e; 
+  color: white; 
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+/* Dropdown item hover effect */
+.navbar-nav li.nav-item.dropdown:hover > a.nav-link {
+  background-color: #fa598e; 
+  font-weight: bold;
+}
+
+/* Active item style */
+.navbar-nav li.nav-item.active > a.nav-link {
+  background-color: #fa598e; 
+  color: white; 
+  font-weight: bold;
+}
+
+.d-flex:hover {
+  border-color: #fa598e; 
+  background-color: #f8f9fa; 
+}
+
+/* Search button hovering effect */
+.d-flex:hover button {
+  background-color: #fa598e; 
+  color: #fff;
+  font-weight: bold;
+}
+
+#footer{
+  background-image: url('/static/assets/images/footerbg.jpg'); 
+  background-size: cover;
+  background-position: center;
+  color: #0a0909; 
+  padding: 100px;
+  opacity: 0.7;
+  transition: opacity 0.5s ease;
+  text-align: center;
+  font-weight: bold;
+}
+#currentTime {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/*--------------------------------------------------------------
+# Featured Services
+--------------------------------------------------------------*/
+.featured-services .icon-box {
+  padding: 30px;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 29px 0 rgba(68, 88, 144, 0.12);
+  transition: all 0.3s ease-in-out;
+  border-radius: 8px;
+  z-index: 1;
+}
+
+.featured-services .icon-box::before {
+  content: "";
+  position: absolute;
+  background: #3db1a1;
+  right: 0;
+  left: 100%;
+  bottom: 0;
+  top: 0;
+  transition: all 0.3s;
+  z-index: -1;
+}
+
+.featured-services .icon-box:hover::before {
+  background: #a04090;
+  left: 0;
+  border-radius: 0px;
+}
+
+.featured-services .icon {
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.featured-services .title {
+  text-align: center;
+  text-decoration: none;
+}
+
+.featured-services .icon i {
+  font-size: 48px;
+  line-height: 1;
+  color:  #d84eae;
+  transition: all 0.3s ease-in-out;
+}
+
+.featured-services .description {
+  font-size: 15px;
+  line-height: 28px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.featured-services .icon-box:hover .title a,
+.featured-services .icon-box:hover .description {
+  color: #fff;
+}
+
+.featured-services .icon-box:hover .icon i {
+  color: #fff;
+}
+
+.section-title h2:hover{
+  background-color:  #d84eae;
+  text-align: center;
+  margin: 10px;
+  margin-top: 30px;
+  border-radius: 10px 50px;
+}
+
+.section-title h2{ 
+  margin-top: 20px;
+  background-color: #63d6aa;
+  padding:9px;
+  font-family: monospace; 
+  color: white; 
+  font-weight: bold;
+  border-radius: 10px 50px;
+}
+
+#gallery{
+  border-radius: 50px 50px;
+}
+
+/*------------------Registration CSS---------------------*/
+.register{
+  background-image: url('/static/assets/images/registerbg.jpeg');
+          background-repeat: no-repeat;
+          background-size: Cover;
+          opacity: 4;
+          height: 100vh;
+}
+
+
+/*-----------------Login CSS start-----------------------*/
+.login-block{
+  background-image: url('/static/assets/images/bg4.jpg');
+          background-repeat: no-repeat;
+          background-size: Cover;
+          opacity: 4;
+          height: 100vh;
+  }

@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main-content %}
+
+<div class="container">
+    <div class="section-title">
+        <center>
+            <h2>OUR PRODUCTS</h2>
+        </center>
+        <br>
+    </div>
+    <!--============================Category Filter Section Start===============================-->
+
+    <a href="/dishes_available_category">
+        <h4><i class=" bi bi-arrow-left-circle">Menu</i></h4>
+    </a>
+    <div class="row mt-4" style="background-color: #d84eae; border-radius: 90px 90px; justify-items: left;">
+        <div class="col-6 mt-3 mb-3" >
+            <a href="/menu"><button class="btn font-monospace text-light" style="font-size: 20pt;">
+                <i class="fas fa-utensils ms-3"></i>&nbsp;&nbsp;All Foods
+                </button></a>
+        </div>
+        <div class="col-6 mt-3 mb-3" >
+            <a href="/menu_item_filter/1"><button class="btn font-monospace text-light" style="font-size: 20pt;">
+                <img src="static\assets\images\icons\appetizers.png" height="50" width="50"></i>&nbsp;Fast Food
+                </button></a>
+        </div>
+        <div class="col-6 mt-3 mb-3">
+            <a href="/menu_item_filter/2"><button class="btn font-monospace text-light" style="font-size: 20pt;">
+                    <img src="static\assets\images\icons\soup.png" height="50" width="50">&nbsp;Soups
+                </button></a>
+        </div>
+        <div class="col-6 mt-3 mb-3">
+            <a href="/menu_item_filter/3"><button class="btn font-monospace text-light" style="font-size: 20pt;">
+                <img src="static\assets\images\icons\bread_rice.png" height="50" width="50">&nbsp;Bread and Rice
+                </button></a>
+        </div>
+        <div class="col-6 mt-3 mb-3">
+            <a href="/menu_item_filter/4"><button class="btn font-monospace text-light" style="font-size: 20pt;">
+                <img src="static\assets\images\icons\curries.png" height="50" width="50">&nbsp;Curries
+                </button></a>
+        </div>
+        <div class="col-6 mt-3 mb-3" >
+            <a href="/menu_item_filter/5"><button class="btn font-monospace text-light" style="font-size: 20pt;">
+                <img src="static\assets\images\icons\tandoori.png" height="50" width="50">&nbsp;Tandoori Specialities
+                </button></a>
+        </div>
+        <div class="col-6 mt-3 mb-3">
+            <a href="/menu_item_filter/6"><button class="btn font-monospace text-light" style="font-size: 20pt;">
+                <img src="static\assets\images\icons\veg.png" height="50" width="50">&nbsp;Vegetarian Main Courses
+                </button></a>
+        </div>
+        <div class="col-6 mt-3 mb-3">
+            <a href="/menu_item_filter/7"><button class="btn font-monospace text-light" style="font-size: 20pt;">
+                <img src="static\assets\images\icons\non-veg.png" height="50" width="50">&nbsp;Non-Vegetarian Main Courses
+                </button></a>
+        </div>
+        <div class="col-6 mt-3 mb-3">
+            <a href="/menu_item_filter/8"><button class="btn font-monospace text-light" style="font-size: 20pt;">
+                <img src="static\assets\images\icons\desserts.png" height="50" width="50"></i>&nbsp;Desserts
+                </button></a>
+        </div>
+        <div class="col-6 mt-3 mb-3">
+            <a href="/menu_item_filter/9"><button class="btn font-monospace text-light" style="font-size: 20pt;">
+                <img src="static\assets\images\icons\beverages.png" height="50" width="50"></i>&nbsp;Beverages
+                </button></a>
+        </div>
+    </div>
+
+    <!--============================Category Filter Section End===============================-->
+
+    
+</div>
+<!--================================Product Section Start====================================================-->
+{% endblock main-content %}
+{% load static %}

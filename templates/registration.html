@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--=================CDN Links for Bootstrap, JavaScript and Style==========================-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+
+    <!--====================Title Section======================-->
+    <title>Restaurant Registration</title>
+</head>
+
+<body class="register">
+    <!--============================Registration Section Start====================================-->
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-12 "></div>
+            <a href="/home" class="text-dark"
+                style="text-decoration: none; text-align: center; font-size: larger; font-weight: bolder;">Home</a>
+        </div>
+        <div class="row mt-4">
+            <div class="col-md-4 shadow-lg mt-1 p-3 mx-auto">
+                <!--====================Registration Heading=========================-->
+                <div class="section-title">
+                    <center>
+                        <h2>REGISTRATION</h2>
+                    </center>
+                    <br>
+                </div>
+                <!--==============Error Message Start==============-->
+                {% if errmsg %}
+                <div class="alert alert-danger">
+                    {{errmsg}}
+                </div>
+                {% endif %}
+                <!--==============Error Message End==============-->
+
+                <!--==============Success Message Start==============-->
+                {% if success %}
+                    <div class="alert alert-success">
+                        {{success}}
+                    </div>
+                    {% endif %}
+                <!--==============Suucess Message End==============-->
+
+                <!--====================Form Section Start=========================-->
+                <form action="/registration" method="POST">
+                    {% csrf_token %}
+                    <!--=============Username=============-->
+                    <div class="mb-3">
+                        <label for="input1" class="form-label fw-bold text-dark">Username:</label>
+                        <input type="text" name="uname" class="form-control" id="input1"
+                            placeholder="Enter First name Only">
+                    </div>
+                    <!--=============Email Id=============-->
+                    <div class="mb-3">
+                        <label for="input2" class="form-label fw-bold text-dark">Email ID:</label>
+                        <input type="email" name="uemail" class="form-control" id="input2"
+                            placeholder="Enter Username here">
+                    </div>
+                    <!--=============Mobile number=============-->
+                    <div class="mb-3">
+                        <label for="input5" class="form-label fw-bold text-dark">Mobile Number:</label>
+                        <input type="text" name="umob" class="form-control" id="input5"
+                            placeholder="Enter Mobile Number here">
+                    </div>
+                    <!--=============Password=============-->
+                    <div class="mb-3">
+                        <label for="input3" class="form-label fw-bold text-dark">Password:</label>
+                        <input type="password" name="upass" class="form-control" id="input3">
+                    </div>
+                    <!--=============Confirm password=============-->
+                    <div class="mb-3">
+                        <label for="input4" class="form-label fw-bold text-dark">Confirm Password:</label>
+                        <input type="password" name="ucpass" class="form-control" id="input4">
+                    </div>
+
+                    <!--=====================Submit button=========================-->
+                    <div class="mb-3 text-center">
+                        <input type="submit" class="btn btn-dark fw-bold" style="background-color: #d84eae;"
+                            value="Register">
+                        <br><br>
+
+                        <!--=====================Newly Register User Section===============-->
+                        <button class="btn btn-dark text-primary"
+                                style="text-decoration: none; background-color: #d84eae; font-weight: bolder;">Already
+                                User?&nbsp;&nbsp;&nbsp;&nbsp;<a href="/login" class="text-light">Login</a></button>
+
+                </form>
+                <!--====================Form Section End=========================-->
+            </div>
+        </div>
+
+        <!--============================Registration Section End====================================-->
+    </div>
+</body>
+</html>

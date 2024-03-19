@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block main-content %}
+
+<div class="conteiner my-5">
+
+    <!--============================Sidebar section start============================-->
+    <div class="row ms-5">
+        <h4 class="mb-4">Welcome <span class="text-Capitalize">{{request.user.first_name}}</span></h4>
+    </div>
+    <!--============================Sidebar section end============================-->
+
+    <!--============================Update Profile form section start============================-->
+    <div class="col-sm-4 offset-sm-4">
+        <form action="" method="post" class="shadow-lg p-3" style="justify-items: center;">
+            {% csrf_token %}
+            <h5 class="bg-light text-dark fw-bold p-2" style=" text-align: center;">Update Profile</h5>
+
+            {% for fm in form %}
+
+            {{fm.label_tag}} {{fm}} <small class="text-danger">{{fm.errors|striptags}}</small><br>
+
+            {% endfor%}
+
+            <!--============================Update btn start============================-->
+            <div class="col-12 mt-3">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <a href="{% url 'address' %}" type="button" class="btn btn-danger">Back</a>
+            </div>
+            <!--============================Update btn============================-->
+
+            <!--============================Alert message start============================-->
+            {% if form.non_field_errors %}
+            {% for error in form.non_field_errors %}
+            <p class="alert alert-danger my-3">{{error}}</p>
+            {% endfor %}
+            {% endif %}
+            <!--============================Alert message end============================-->
+            
+        </form>
+    </div>
+    <!--============================Update profile form section End============================-->
+
+</div>
+
+{% endblock main-content %}

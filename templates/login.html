@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--=================CDN Links for Bootstrap, JavaScript and Style==========================-->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
+    <!--====================Title Section======================-->
+    <title>Login</title>
+</head>
+
+<!--============================Login Section Start====================================-->
+
+<body class="login-block">
+    <div class="container">
+        <center>
+            <form class="login-form" action="/login" method="POST" style="width: 50%; ">
+                {% csrf_token %}
+                <!--===================Background Gradient=======================-->
+                <div class="mask"
+                    style="background: linear-gradient(to bottom, rgba(0, 47, 75, 0.8) 0%, rgba(220, 66, 37, 0.8));">
+
+                    <!--====================Login Heading=========================-->
+                    <div class="align-items-center">
+                        <div class="mt-5 p-4 text-center">
+                            <div class="section-title">
+                                {% if errmsg %}
+                                <div class="alert alert-danger">
+
+                                    {{errmsg}}
+                                </div>
+                                {% endif %}
+                                <center>
+                                    <h2 class="text-light">LOGIN</h2>
+                                </center>
+                                <br>
+                            </div>
+                            <!--====================Email and Password=========================-->
+                            <div class="form-outline form-white my-4">
+                                <label class="form-label text-white" for="typeEmail">E-mail</label>
+                                <input type="email" name="uemail" id="typeEmail" class="form-control form-control-lg" />
+                            </div>
+
+                            <div class="form-outline form-white my-4">
+                                <label class="form-label text-white" for="typePassword">Password</label>
+                                <input type="password" name="upass" id="typePassword"
+                                    class="form-control form-control-lg" />
+                            </div>
+                            <!--=====================Submit button=========================-->
+                            <button type="submit" class="btn btn-primary btn-block mb-4 text-light"
+                                style="background-color: #d84eae;">Sign in</button>
+                            <br>
+                            <!--=====================Newly Register User Section===============-->
+                            <p>
+                                Not a member?
+                                <a href="/registration" class="text-white"><strong>Register</strong></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </center>
+    </div>
+</body>
+<!--============================Login Section End====================================-->
+
+</html>

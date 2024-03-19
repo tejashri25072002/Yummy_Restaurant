@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--===============Title Section Start=====================-->
+    <title>Yummy Restaurant</title>
+    <!--===============Title Section End=====================-->
+</head>
+
+<body>
+    <div class="row">
+        <!--=================Current Time Show Section Start======================
+        <div class="col-3">
+            <i class="bi bi-alarm ms-2" id="currentTime"></i>
+            <b id="currentDate"></b>
+        </div>
+        =================Current Time Show Section End======================-->
+
+        <!--=================Email and call Section Start======================-->
+        <div class="col-12 me-5" style="text-align: end;background-color:lavender;">
+            {% if user.is_authenticated %}
+            <button class="ms-5 m-2 btn btn-outline-light"><a
+                    href="mailto:tejashripshinde002@gmail.com" style="text-decoration: none;"><i class="fas fa-envelope me-2 text-primary"></i>Send mail Here</a></button>
+            <button class="ms-5 m-2 btn btn-outline-light"><a
+                    href="tel:+91 8978675678" style="text-decoration: none;"><i class="fas fa-phone-square me-2 text-primary"></i>Contact Us</a></button>
+            {% endif %}
+        </div>
+        <!--=================Email and call Section End======================-->
+    </div>
+
+    <!--===================================Header Section Start===================================================-->
+    <nav class="navbar navbar-expand-lg" style="background-color:lavender;">
+        <div class="container-fluid">
+
+            <!--================BRAND NAME=================-->
+            <h2><a class="navbar-brand ms-5 font-monospace" href="#">
+                    <font style="color:rgb(141, 151, 3);">Y</font>ummy <font style="color:rgb(99, 66, 190); border:5px">
+                        R</font>estaurant
+                </a></h2>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--===================Navbar Headings===================-->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/dishes_available_category">Menu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/home#services">Services</a>
+                    </li>
+                    <!--
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            Category
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Breakfast</a></li>
+                            <li><a class="dropdown-item" href="#">Lunch</a></li>
+                            <li><a class="dropdown-item" href="#">Dinner</a></li>
+                            <li><a class="dropdown-item" href="#">Beverages</a></li>
+                        </ul>
+                    </li>&nbsp;
+                    -->
+                    {% endif %}
+                </ul>
+
+                <!--====================Search Button==========================-->
+                <form class="d-flex" role="search" action="/search">
+                    <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                    <button class="btn btn fw-bold" type="submit">Search</button>
+                </form>&nbsp;
+                <!--====================Search Button End======================-->
+
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 fw-bold">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/logout">Logout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-heart"></i>
+                        <span class="badge badge-pill badge-danger notify">0</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/cart"><i class="fas fa-shopping-cart"></i>
+                        <span class="badge badge-pill badge-danger notify">{% if totalitem > 0 %} {{totalitem}} {% endif %}</span></a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/login">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/registration">Registration</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item dropdown">
+                        {% if user.is_authenticated %}
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="bi bi-person-circle"></i>&nbsp;{{user.first_name}}
+                        </a>
+                        {% endif %}
+                        <ul class="dropdown-menu active">
+                            <li><a class="dropdown-item" href="{% url 'profile' %}">Profile</a></li>
+                            <li><a class="dropdown-item" href="{% url 'orders' %}">Orders</a></li>
+                            <li><a class="dropdown-item" href="{% url 'changepassword' %}">Change Password</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+     <!--=============================JavaScript CDN Links Start=============================-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'assets/js/main.js' %}"></script>
+     <!--=============================JavaScript CDN Links End=============================-->
+
+    <!--==============JavaScript code for Clock and Date display Start===============================
+    <script>
+        
+        function updateTime() {
+            // Get the current time
+            const now = new Date();
+
+            // Format the time as HH:MM:SS
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+
+            // Display the time in the HTML element
+            document.getElementById('currentTime').innerText = `${hours}:${minutes}:${seconds}`;
+        }
+
+        // Update the time every second
+        setInterval(updateTime, 1000);
+
+        // Initial call to set the time immediately
+        updateTime();
+
+        function updateDate() {
+            // Get the current date
+            const now = new Date();
+
+            // Get day name
+            const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+            const dayName = days[now.getDay()];
+
+            // Format the date as Day, MM/DD/YYYY
+            const month = (now.getMonth() + 1).toString().padStart(2, '0');
+            const day = now.getDate().toString().padStart(2, '0');
+            const year = now.getFullYear();
+
+            // Display the date in the HTML element
+            document.getElementById('currentDate').innerText = `${dayName}, ${month}/${day}/${year}`;
+        }
+
+        // Initial call to set the date immediately
+        updateDate();
+    </script>
+    ==============Script code for Clock and Date display End===============================-->
+
+
+    <!--===================================Header Section End===================================================-->
+
+    
+</body>
+
+</html>
